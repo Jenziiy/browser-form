@@ -1,0 +1,60 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+#form-container {
+  display: grid;
+  grid-column: 2;
+  border: solid grey 3px;
+  border-radius: 10px;
+}
+
+form {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 10px 0px 10px 0px;
+}
+
+form > div:last-child {
+padding-top: 30px;
+}
+button {
+  width:fit-content;
+  padding: 5px 10px 5px 10px;
+  justify-self: flex-end;
+  font-size: medium;
+  font-weight:bold;
+}
+
+label[for=submit-button]{
+  visibility:hidden;
+}
+
+input {
+  border-style: unset;
+  border-radius: 7px;
+  border: grey solid 2px;
+  padding: 5px 12px;
+}
+
+/* form:valid{
+  background-color: pink;
+}
+
+input:valid{
+border: green solid 2px;
+box-shadow: 1px 1px green;
+}
+
+#email:invalid{
+  border: red solid 2px;
+  background: radial-gradient(circle, rgba(231,232,234,0.896796218487395) 0%, rgb(230, 29, 29) 100%);
+} */
+

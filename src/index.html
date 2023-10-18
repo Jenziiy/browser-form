@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="/src/app.js" defer></script>
+  <title>Browser form</title>
+</head>
+<body>
+  <div id="form-container">
+    <form action="/src/home.html" method="get">
+      <h2>Fill out diz form plz ^_^</h2>
+      <div><label for="email">e-mail</label><input type="email" name="email" id="email"></div>
+      <div><label for="country">country</label><input type="text" name="country" id="country"></div>
+      <div><label for="zipcode">zipcode</label><input type="text" name="zipcode" id="zipcode"></div>
+      <div><label for="password">password</label><input type="password" name="password" id="password" required></div>
+      <div><label for="confirm-password">confirm password</label><input type="password" name="confirm-password" id="confirm-password" required></div>
+      <div><label for="submit-button">submit form</label><button type="submit" value="submit" id="submit-button">submit</div>
+    </form>
+  </div>
+</body>
+</html>

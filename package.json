@@ -1,0 +1,17 @@
+{
+  "name": "browser-form",
+  "version": "1.0.0",
+  "description": "browser form to input data",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "browser",
+    "form",
+    "input",
+    "validation"
+  ],
+  "author": "Jeanine",
+  "license": "ISC"
+}
