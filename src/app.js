@@ -124,3 +124,31 @@ get('story.json').then(response => {
 }, error => {
   console.error("Failed!", error);
 });
+
+const userCache = {};
+
+function getUserDetail(username){
+  // a promise will be returned cached or not cached. 
+
+  if (userCache[username]) {
+    // return a promise without the 'new' keyword
+    return Promise.resolve(userCache[username]);
+  }
+  // use Fetch API to get info -> fetch returns a promise.
+
+    return fetch('users/' + username + '.json')
+   .then((result) => { 
+    if (!result.statusText) {
+      userCache[username] = result
+    return result; 
+    } else {
+      throw('Could not find user: ' + username);
+    }
+  })
+  .catch((error) => {
+  return new Error('catch me if you can', error);
+  })
+}
+
+getUserDetail('jeanine')
+.then((response) => console.error(response) );
