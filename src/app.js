@@ -70,3 +70,57 @@ window.onload = () => {
   document.getElementById("country").onchange = checkZIP;
   document.getElementById("zipcode").oninput = checkZIP;
 }
+
+// let p = new Promise(function(resolve, reject) {
+//   //Do async task and then
+//   if("good") {
+//     resolve("Success!");
+//   } else {
+//     reject("failure!");
+//   }
+// });
+
+// p.then(function(result){
+//   //do smth with the result
+// }).catch(function(){
+//   //error
+// }).finally(function(){
+//   //executes regardless of success or failure.
+// });
+
+
+function get(url) {
+  //return new promise.
+  return new Promise(function(resolve, reject) {
+    //do the usual hr stuff
+    const req = new XMLHttpRequest();
+    req.open('GET', url);
+
+    req.onload = function(){
+      //called on all http statuses, so check status. 
+      if (req.status == 200) {
+        //resolve the promise with response text
+        resolve(req.response);
+      } else {
+        //otherwise reject with status txt
+        // which will hopefully be a meaningful error
+        reject(Error(req.statusText));
+      }
+    };
+
+    // handle network errors
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+
+    //Make the request
+    req.send();
+  });
+}
+
+//use it
+get('story.json').then(function(response) {
+  console.log("Success!", response);
+}, function(error) {
+  console.error("Failed!", error);
+});
