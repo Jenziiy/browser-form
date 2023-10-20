@@ -91,12 +91,12 @@ window.onload = () => {
 
 function get(url) {
   //return new promise.
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     //do the usual hr stuff
     const req = new XMLHttpRequest();
     req.open('GET', url);
 
-    req.onload = function(){
+    req.onload = () => {
       //called on all http statuses, so check status. 
       if (req.status == 200) {
         //resolve the promise with response text
@@ -109,7 +109,7 @@ function get(url) {
     };
 
     // handle network errors
-    req.onerror = function() {
+    req.onerror = () => {
       reject(Error("Network Error"));
     };
 
@@ -119,8 +119,8 @@ function get(url) {
 }
 
 //use it
-get('story.json').then(function(response) {
+get('story.json').then(response => {
   console.log("Success!", response);
-}, function(error) {
+}, error => {
   console.error("Failed!", error);
 });
