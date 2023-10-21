@@ -152,3 +152,47 @@ function getUserDetail(username){
 
 getUserDetail('jeanine')
 .then((response) => console.error(response) );
+
+
+
+new Promise((resolve, reject) => {
+  // mock async action 
+  setTimeout(() => { resolve(10); }, 3000);
+})
+.then((result) => {
+  console.log(result);
+});
+
+new Promise((resolve, reject) => {
+  setTimeout(() => { resolve(10);}, 3000);
+})
+.then((num) => { console.log('first then:', num); return num *2; } ) 
+.then((num) => {console.log('second then:', num); return num *2; } )
+.then((num) => {console.log('last then:', num)});
+
+new Promise((resolve, reject) => {
+  setTimeout( () => {reject(Error('Data could not be found')); }, 3000 );
+})
+.then((e) =>{console.log('done', e); })
+.catch((e) => {console.error(e) });
+
+(new Promise((resolve, reject) => reject('nope')))
+.then(() => console.log('success'))
+.catch(() => console.log('fail'))
+.finally(res => console.log('finally'));
+
+const request1 = fetch('dgsdh');
+const request2 = fetch('/users/jeanin.json');
+
+Promise.all([request1, request2]).then((results) => {
+if (!results[0].ok){
+  throw new Error('404 not ok');
+}
+ console.log('nuffin');
+})
+.catch(err => console.error(err));
+
+Promise.resolve(navigator.getBattery())
+.then((ok)=> console.log('hi', ok));
+
+
