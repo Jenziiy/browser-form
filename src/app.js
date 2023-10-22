@@ -196,3 +196,4 @@ Promise.resolve(navigator.getBattery())
 .then((ok)=> console.log('hi', ok));
 
 
+
