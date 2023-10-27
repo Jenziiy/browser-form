@@ -195,5 +195,3 @@ if (!results[0].ok){
 Promise.resolve(navigator.getBattery())
 .then((ok)=> console.log('hi', ok));
 
-
-
